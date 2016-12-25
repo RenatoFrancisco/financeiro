@@ -4,6 +4,8 @@ import org.hibernate.Session;
 
 import br.com.javaparaweb.financeiro.categoria.CategoriaDAO;
 import br.com.javaparaweb.financeiro.categoria.CategoriaDAOHibernate;
+import br.com.javaparaweb.financeiro.cheque.ChequeDAO;
+import br.com.javaparaweb.financeiro.cheque.ChequeDAOHibernate;
 import br.com.javaparaweb.financeiro.conta.ContaDAO;
 import br.com.javaparaweb.financeiro.conta.ContaDAOHibernate;
 import br.com.javaparaweb.financeiro.lancamento.LancamentoDAO;
@@ -39,5 +41,12 @@ public class DAOFactory {
 		LancamentoDAOHibernate lancamentoDAO = new LancamentoDAOHibernate();
 		lancamentoDAO.setSession(session);
 		return lancamentoDAO;
+	}
+	
+	public static ChequeDAO criaChequeDAO() {
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		ChequeDAOHibernate chequeDAO = new ChequeDAOHibernate();
+		chequeDAO.setSession(session);
+		return chequeDAO;
 	}
 }
